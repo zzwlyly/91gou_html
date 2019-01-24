@@ -86,7 +86,7 @@ $(function () {
                     $dl.append
                     ($('<dd>')
                         .append(
-                            $('<a>').attr('title', cate_3.name).attr('href','/')
+                            $('<a>').attr('title', cate_3.name).attr('href', '/')
                                 .append(
                                     $('<span>').text(cate_3.name)
                                 )
@@ -122,6 +122,7 @@ $(function () {
         $('#ss').html(seco);
         // setTimeout("fomtime()", 1000);
     }
+
     //
     fomtime();
     setInterval(fomtime, 1000);
@@ -159,255 +160,275 @@ $(function () {
         )
     }
 
-    //    楼层商品展示
-    // $.get(SUBS_URL, function (result) {
+    // 楼层商品展示
+    // $.get(NAV_URL, function (result) {
     //     if (result.status === 200 && result.msg === 'success') {
     //         // 商品展示
     //         add_goods(result.data);
+    //
     //     }
     // });
 
-    // function add_goods(result) {
-    //     for (let sub of result.slice(0, 2)) {
-    //         // console.log(result.indexOf(sub));
-    //         let $brands = $('<div class="today-brands brands" style="right:0;top:13px;">');
-    //         let $floodSix = $('<div class="am-g am-g-fixed floodSix ">');
-    //         $('#shopmain').append(
-    //             $('<div>').addClass('f' + (result.indexOf(sub) + 1))
-    //                 .append(
-    //                     $('<div>').addClass('am-container')
-    //                         .append(
-    //                             // $shopTitle
-    //                             $('<div>').addClass('shopTitle')
-    //                                 .append(
-    //                                     $('<h4>').addClass('floor-title').text(sub.name)
-    //                                 )
-    //                                 .append(
-    //                                     $('<div>').addClass('floor-subtitle')
-    //                                         .append(
-    //                                             $('<em>').addClass('am-icon-caret-left')
-    //                                         )
-    //                                         .append(
-    //                                             $('<h3>').text('每一件衣服都有一个故事')
-    //                                         )
-    //                                 )
-    //                                 .append(
-    //                                     $brands
-    //                                     // $('<div class="today-brands brands" style="right:0;top:13px;">')
-    //                                 )
-    //                         )
-    //                 )
-    //                 .append(
-    //                     $floodSix
-    //                 )
-    //         );
-    //
-    //         for (let subcate of sub.subs) {
-    //             // console.log(sub.sub_id);
-    //             $('<a>').attr('href','./subcategory.html?subcategory=' + sub.sub_id + '?type=' + subcate.type_id).text(subcate.name).appendTo($brands);
-    //
-    //             for (let i = 0; i < subcate.types.length; i++) {
-    //                 $floodSix
-    //                     .append(
-    //                         $('<div class="am-u-sm-5 am-u-md-3 text-one list">')
-    //                             .append(
-    //                                 $('<div class="word">')
-    //                                     .append(
-    //                                         $('<a class="outer" href="#">')
-    //                                             .append(
-    //                                                 $('<span class="inner">')
-    //                                                     .append(
-    //                                                         $('<b class="text">').text(subcate.types[i].name.slice(0, 3))
-    //                                                     )
-    //                                             )
-    //                                     )
-    //                             )
-    //                             .append(
-    //                                 $('<a>').attr('href','./subcategory.html?subcategory=' + sub.sub_id)
-    //                                     .append(
-    //                                         // $('<img>').attr('src', goods.image)
-    //                                         $('<img style="width: 160px;height: 160px;">').attr('src', '../images/yifu.jpg')
-    //                                     )
-    //                                     .append(
-    //                                         $('<div class="outer-con">')
-    //                                             .append(
-    //                                                 $('<div class="title">').text(sub.name + '全场年底大优惠')
-    //                                             )
-    //                                             .append(
-    //                                                 $('<div class="sub-title">').text('这个冬天有你更温暖')
-    //                                             )
-    //                                     )
-    //                             )
-    //                             .append(
-    //                                 $('<div class="triangle-topright">')
-    //                             )
-    //                     );
-    //                 // 推荐商品1 （根据subcate.types[0]显示指定商品
-    //                 for (let goods of subcate.types[0].goods_detail) {
-    //                     $floodSix
-    //                         .append(
-    //                             $('<div class="am-u-sm-7 am-u-md-5 am-u-lg-2 text-two big">')
-    //                                 .append(
-    //                                     $('<div class="outer-con">')
-    //                                         .append(
-    //                                             $('<div class="title">').text(goods.title.slice(0, 7))
-    //                                         )
-    //                                         .append(
-    //                                             $('<div class="sub-title">').text("¥" + goods.promote_price)
-    //                                         )
-    //                                 )
-    //                                 .append(
-    //                                     $('<a>').attr('href','./detail.html?good=' + goods.goods)
-    //                                         .append(
-    //                                             $('<img style="width: 280px;height: 280px">').attr('src', goods.image)
-    //                                             // $('<img>').attr('src', '../images/act1.png')
-    //                                         )
-    //                                 )
-    //                         )
-    //                 }
-    //                 // 推荐商品2
-    //                 for (let goods of subcate.types[0].goods_detail) {
-    //                     $floodSix
-    //                         .append(
-    //                             $('<li>').append(
-    //                                 $('<div class="am-u-md-2 am-u-lg-2 text-three">')
-    //                                     .append(
-    //                                         $('<div class="boxLi">')
-    //                                     )
-    //                                     .append(
-    //                                         $('<div class="outer-con ">')
-    //                                             .append(
-    //                                                 $('<div class="title">').text(goods.title.slice(0, 7))
-    //                                             )
-    //                                             .append(
-    //                                                 $('<div class="sub-title">').text("¥" + goods.promote_price)
-    //                                             )
-    //                                     )
-    //                                     .append(
-    //                                         $('<a>').attr('href','./detail.html?good=' + goods.goods)
-    //                                             .append(
-    //                                                 $('<img style="width: 150px;height: 150px">').attr('src', goods.image)
-    //                                                 // $('<img>').attr('src', '../images/1.jpg')
-    //                                             )
-    //                                     )
-    //                             )
-    //                         );
-    //                 }
-    //                 // 推荐商品3
-    //                 for (let goods of subcate.types[0].goods_detail) {
-    //                     $floodSix
-    //                         .append(
-    //                             $('<li>').append(
-    //                                 $('<div class="am-u-md-2 am-u-lg-2 text-three sug">')
-    //                                     .append(
-    //                                         $('<div class="boxLi">')
-    //                                     )
-    //                                     .append(
-    //                                         $('<div class="outer-con ">')
-    //                                             .append(
-    //                                                 $('<div class="title">').text(goods.title.slice(0, 7))
-    //                                             )
-    //                                             .append(
-    //                                                 $('<div class="sub-title">').text("¥" + goods.promote_price)
-    //                                             )
-    //                                     )
-    //                                     .append(
-    //                                         $('<a>').attr('href','./detail.html?good=' + goods.goods)
-    //                                             .append(
-    //                                                 $('<img style="width: 150px;height: 150px">').attr('src', goods.image)
-    //                                                 // $('<img>').attr('src', '../images/1.jpg')
-    //                                             )
-    //                                     )
-    //                             )
-    //                         );
-    //                 }
-    //                 // 推荐商品4
-    //                 for (let goods of subcate.types[0].goods_detail) {
-    //                     $floodSix
-    //                         .append(
-    //                             $('<li>').append(
-    //                                 $('<div class="am-u-sm-4 am-u-md-5 am-u-lg-4 text-five">')
-    //                                     .append(
-    //                                         $('<div class="boxLi">')
-    //                                     )
-    //                                     .append(
-    //                                         $('<div class="outer-con ">')
-    //                                             .append(
-    //                                                 $('<div class="title">').text(goods.title.slice(0, 7))
-    //                                             )
-    //                                             .append(
-    //                                                 $('<div class="sub-title">').text("¥" + goods.promote_price)
-    //                                             )
-    //                                     )
-    //                                     .append(
-    //                                         $('<a>').attr('href','./detail.html?good=' + goods.goods)
-    //                                             .append(
-    //                                                 $('<img style="width: 150px;height: 150px">').attr('src', goods.image)
-    //                                                 // $('<img>').attr('src', '../images/1.jpg')
-    //                                             )
-    //                                     )
-    //                             )
-    //                         );
-    //                 }
-    //                 // 推荐商品5
-    //                 for (let goods of subcate.types[0].goods_detail) {
-    //                     $floodSix
-    //                         .append(
-    //                             $('<li>').append(
-    //                                 $('<div class="am-u-sm-4 am-u-md-2 am-u-lg-2 text-six">')
-    //                                     .append(
-    //                                         $('<div class="boxLi">')
-    //                                     )
-    //                                     .append(
-    //                                         $('<div class="outer-con ">')
-    //                                             .append(
-    //                                                 $('<div class="title">').text(goods.title.slice(0, 7))
-    //                                             )
-    //                                             .append(
-    //                                                 $('<div class="sub-title">').text("¥" + goods.promote_price)
-    //                                             )
-    //                                     )
-    //                                     .append(
-    //                                         $('<a>').attr('href','./detail.html?good=' + goods.goods)
-    //                                             .append(
-    //                                                 $('<img style="width: 150px;height: 150px">').attr('src', goods.image)
-    //                                                 // $('<img>').attr('src', '../images/1.jpg')
-    //                                             )
-    //                                     )
-    //                             )
-    //                         );
-    //                 }
-    //                 // 推荐商品6
-    //                 for (let goods of subcate.types[0].goods_detail) {
-    //                     $floodSix
-    //                         .append(
-    //                             $('<li>').append(
-    //                                 $('<div class="am-u-sm-4 am-u-md-2 am-u-lg-4 text-six">')
-    //                                     .append(
-    //                                         $('<div class="boxLi">')
-    //                                     )
-    //                                     .append(
-    //                                         $('<div class="outer-con ">')
-    //                                             .append(
-    //                                                 $('<div class="title">').text(goods.title.slice(0, 7))
-    //                                             )
-    //                                             .append(
-    //                                                 $('<div class="sub-title">').text("¥" + goods.promote_price)
-    //                                             )
-    //                                     )
-    //                                     .append(
-    //                                         $('<a>').attr('href','./detail.html?good=' + goods.goods)
-    //                                             .append(
-    //                                                 $('<img style="width: 150px;height: 150px">').attr('src', goods.image)
-    //                                                 // $('<img>').attr('src', '../images/1.jpg')
-    //                                             )
-    //                                     )
-    //                             )
-    //                         );
-    //                 }
-    //
-    //             }
-    //         }
-    //     }
-    // }
+    $.get(CATE_URL, function (result) {
+        if (result.status === 200 && result.msg === 'success') {
+            // 商品展示
+            add_goods(result.data);
+        }
+    });
+
+    // console.log($('.floodSix').className);
+
+
+    function add_goods(result) {
+        for (let cate1 of result) {
+            let $brands = $('<div class="today-brands brands" style="right:0;top:13px;">');
+            let $floodSix = $('<div class="am-g am-g-fixed floodSix ">');
+            let $word = $('<div class="word">');
+
+
+            $('#shopmain').append(
+                $('<div>').addClass('f' + (result.indexOf(cate1) + 1))
+                    .append(
+                        $('<div>').addClass('am-container')
+                            .append(
+                                // $shopTitle
+                                $('<div>').addClass('shopTitle')
+                                    .append(
+                                        // $('<h4>').addClass('floor-title').text(cate1.children[0].name)
+                                        $('<h4>').addClass('floor-title').text(cate1.name)
+                                    )
+                                    .append(
+                                        $('<div>').addClass('floor-subtitle')
+                                            .append(
+                                                $('<em>').addClass('am-icon-caret-left')
+                                            )
+                                            .append(
+                                                $('<h3>').text('每一件衣服都有一个故事')
+                                            )
+                                    )
+                                    .append(
+                                        $brands
+                                        // $('<div class="today-brands brands" style="right:0;top:13px;">')
+                                    )
+                            )
+                    )
+                    .append(
+                        $floodSix
+                            .append(
+                                $('<div class="am-u-sm-5 am-u-md-3 text-one list">')
+                                    .append(
+                                        $word
+                                    )
+                                    .append(
+                                        $('<a>').attr('href', '')
+                                            .append(
+                                                // $('<img>').attr('src', cate1.goods[0].show_img)
+                                                $('<img style="width: 160px;height: 160px;">').attr('src', '../basic/images/main' + (result.indexOf(cate1) + 1) + '.jpg')
+                                            )
+                                            .append(
+                                                $('<div class="outer-con">')
+                                                    .append(
+                                                        $('<div class="title">').text('全场年底大优惠')
+                                                    )
+                                                    .append(
+                                                        $('<div class="sub-title">').text('这个冬天有你更温暖')
+                                                    )
+                                            )
+                                    )
+                            )
+                            .append(
+                                $('<div class="triangle-topright">')
+                                // )
+                            )
+                    )
+            );
+
+            for (let good of cate1.goods.slice(0, 9)) {
+                $('<a>').attr('href', '').text(good.good_name.slice(0, 2)).appendTo($brands);
+                $word
+                    .append(
+                        $('<a class="outer" href="#">')
+                            .append(
+                                $('<span class="inner">')
+                                    .append(
+                                        $('<b class="text">').text(good.good_name.slice(0, 2))
+                                    )
+                            )
+                    );
+
+
+            }
+            // 推荐商品1
+            $floodSix
+                .append(
+                    $('<div class="am-u-sm-7 am-u-md-5 am-u-lg-2 text-two big">')
+                        .append(
+                            $('<div class="outer-con">')
+                                .append(
+                                    $('<div class="title">').text(cate1.goods[0].good_name)
+                                )
+                                .append(
+                                    $('<div class="sub-title">').text("¥" + cate1.goods[0].good_price)
+                                )
+                        )
+                        .append(
+                            $('<a>').attr('href', '/')
+                                .append(
+                                    $('<img style="width: 280px;height: 280px">').attr('src', cate1.goods[0].show_img)
+                                    // $('<img>').attr('src', '../images/act1.png')
+                                )
+                        )
+                );
+
+            // 推荐商品2
+            $floodSix
+                .append(
+                    $('<li>').append(
+                        $('<div class="am-u-md-2 am-u-lg-2 text-three">')
+                            .append(
+                                $('<div class="boxLi">')
+                            )
+                            .append(
+                                $('<div class="outer-con ">')
+                                    .append(
+                                        $('<div class="title">').text(cate1.goods[1].good_name)
+                                    )
+                                    .append(
+                                        $('<div class="sub-title">').text("¥" + cate1.goods[1].good_price)
+                                    )
+                            )
+                            .append(
+                                $('<a>').attr('href', '/')
+                                    .append(
+                                        $('<img style="width: 150px;height: 150px">').attr('src', cate1.goods[1].show_img)
+                                        // $('<img>').attr('src', '../images/1.jpg')
+                                    )
+                            )
+                    )
+                );
+
+            // 推荐商品3
+            $floodSix
+                .append(
+                    $('<li>').append(
+                        $('<div class="am-u-md-2 am-u-lg-2 text-three sug">')
+                            .append(
+                                $('<div class="boxLi">')
+                            )
+                            .append(
+                                $('<div class="outer-con ">')
+                                    .append(
+                                        $('<div class="title">').text(cate1.goods[2].good_name)
+                                    )
+                                    .append(
+                                        $('<div class="sub-title">').text("¥" + cate1.goods[2].good_price)
+                                    )
+                            )
+                            .append(
+                                $('<a>').attr('href', '/')
+                                    .append(
+                                        $('<img style="width: 150px;height: 150px">').attr('src', cate1.goods[2].show_img)
+                                        // $('<img>').attr('src', '../images/1.jpg')
+                                    )
+                            )
+                    )
+                );
+
+            // 推荐商品4
+            $floodSix
+                .append(
+                    $('<li>').append(
+                        $('<div class="am-u-sm-4 am-u-md-5 am-u-lg-4 text-five">')
+                            .append(
+                                $('<div class="boxLi">')
+                            )
+                            .append(
+                                $('<div class="outer-con ">')
+                                    .append(
+                                        $('<div class="title">').text(cate1.goods[3].good_name)
+                                    )
+                                    .append(
+                                        $('<div class="sub-title">').text("¥" + cate1.goods[3].good_price)
+                                    )
+                            )
+                            .append(
+                                $('<a>').attr('href', '/')
+                                    .append(
+                                        $('<img style="width: 150px;height: 150px">').attr('src', cate1.goods[3].show_img)
+                                        // $('<img>').attr('src', '../images/1.jpg')
+                                    )
+                            )
+                    )
+                );
+
+            // 推荐商品5
+            $floodSix
+                .append(
+                    $('<li>').append(
+                        $('<div class="am-u-sm-4 am-u-md-2 am-u-lg-2 text-six">')
+                            .append(
+                                $('<div class="boxLi">')
+                            )
+                            .append(
+                                $('<div class="outer-con ">')
+                                    .append(
+                                        $('<div class="title">').text(cate1.goods[4].good_name)
+                                    )
+                                    .append(
+                                        $('<div class="sub-title">').text("¥" + cate1.goods[4].good_price)
+                                    )
+                            )
+                            .append(
+                                $('<a>').attr('href', '/')
+                                    .append(
+                                        $('<img style="width: 150px;height: 150px">').attr('src', cate1.goods[4].show_img)
+                                        // $('<img>').attr('src', '../images/1.jpg')
+                                    )
+                            )
+                    )
+                );
+
+            // 推荐商品6
+            $floodSix
+                .append(
+                    $('<li>').append(
+                        $('<div class="am-u-sm-4 am-u-md-2 am-u-lg-4 text-six">')
+                            .append(
+                                $('<div class="boxLi">')
+                            )
+                            .append(
+                                $('<div class="outer-con ">')
+                                    .append(
+                                        $('<div class="title">').text(cate1.goods[5].good_name)
+                                    )
+                                    .append(
+                                        $('<div class="sub-title">').text("¥" + cate1.goods[5].good_price)
+                                    )
+                            )
+                            .append(
+                                $('<a>').attr('href', '/')
+                                    .append(
+                                        $('<img style="width: 150px;height: 150px">').attr('src', cate1.goods[5].show_img)
+                                        // $('<img>').attr('src', '../images/1.jpg')
+                                    )
+                            )
+                    )
+                );
+
+
+        }
+    }
+
+
 });
+
+/*
+        
+        for (let goods of subcate.types[0].goods_detail) {
+            
+        }
+        
+        }
+        
+        
+* */

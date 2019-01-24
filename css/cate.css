@@ -1,0 +1,80 @@
+.property{
+    position: relative;
+    height: 35px;
+    /*padding-top: 50px;*/
+}
+.cate-wrap{
+    padding-top: 25px;
+    /*height: 35px;*/
+    /*line-height: 35px;*/
+    /*text-align: left;*/
+}
+.cate-prop:first-child{
+    margin-bottom: 100px;
+    /*height: 80px;*/
+}
+
+.prop-key{
+    float: left;
+    /*position: relative;*/
+    /*padding-top: 20px;*/
+    margin: 0;
+    width: 100px;
+    padding-left: 10px;
+}
+
+.prop-values{
+    /*height: 100%;*/
+    /*position: absolute;*/
+    padding-left: 100px;
+    /*top: 30px;*/
+}
+
+.prop-value{
+    padding-right: 10px;
+}
+
+.cate-good-img{
+    width: 220px;
+    height: 220px;
+}
+
+.cate-good-price > span{
+    /*width: 180px;*/
+    /*text-align: center;*/
+    color: red;
+    font-size: 18px;
+}
+
+/*.cate-good-wrap{*/
+    /*width: 230px;*/
+/*}*/
+
+.cate-good-wrap{
+    float: left;
+    width: 230px;
+    padding: 10px;
+    /*text-align: center;*/
+}
+
+.cate-good-desc > p{
+    /*width: 180px;*/
+    /*text-align: center;*/
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+/*清除浮动*/
+.clear-v {
+    zoom: 1;
+}
+
+.clear-v:after {
+    clear: both;
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}

@@ -15,7 +15,23 @@
     <link href="../css/dlstyle.css" rel="stylesheet" type="text/css">
     <script src="../AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
     <script src="../AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
-    <script src="../basic/common/api.js"></script>
+    <script src="../basic/common/utils.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //当光标离开 新密码时，验证密码
+            $("#password").blur(function () {
+                checkPassword();
+            });
+
+            //当光标离开  确认新密码 时 ，验证是否相同
+            $("#passwordRepeat").blur(function () {
+                checkConfirmPW();
+            });
+
+
+
+        })
+    </script>
 </head>
 
 <body>
@@ -57,9 +73,9 @@
                             </div>
 
                             <!--<div class="login-links">-->
-                                <!--<label for="reader-me">-->
-                                    <!--<input id="reader-me" type="checkbox"> 点击表示您同意商城《服务协议》-->
-                                <!--</label>-->
+                            <!--<label for="reader-me">-->
+                            <!--<input id="reader-me" type="checkbox"> 点击表示您同意商城《服务协议》-->
+                            <!--</label>-->
                             <!--</div>-->
                             <div class="am-cf">
                                 <input type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">

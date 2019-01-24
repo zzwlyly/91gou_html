@@ -5,31 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
 
-    <title>个人中心</title>
+    <title>框架</title>
 
     <link href="../AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
     <link href="../AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
-    <link href="../css/personal.css" rel="stylesheet" type="text/css">
-    <link href="../css/vipstyle.css" rel="stylesheet" type="text/css">
-    <script src="../AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-    <script src="../AmazeUI-2.4.2/assets/js/amazeui.js"></script>
-    <script type="text/javascript" src="../js/jquery.cookie.js"></script>
-    <script type="text/javascript">
-        function hasParameter(url, variable) {
-            var query = window.location.search.substring(1);
-            var vars = query.split("&");
-            for (var i = 0; i < vars.length; i++) {
-                var pair = vars[i].split("=");
-                if (pair[0] === variable) {
-                    return pair[1];
-                }
-            }
-            return (false);
-        }
 
-        // 设置session_id  一天过期
-        $.cookie('sessionid',hasParameter(location.href,'sessionid'),{ expires: 1 })
-    </script>
+    <link href="../css/personal.css" rel="stylesheet" type="text/css">
+
+    <script src="../AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../AmazeUI-2.4.2/assets/js/amazeui.js" type="text/javascript"></script>
+
 </head>
 
 <body>
@@ -252,7 +237,7 @@
                                                         .addClass("m-coupon")
                                                         .append(
                                                             $('<a>')
-                                                                // 优惠券跳转链接
+                                                            // 优惠券跳转链接
                                                                 .attr('href','coupon.html')
                                                                 .append(
                                                                     $('<em>')
@@ -652,7 +637,7 @@
     <aside class="menu">
         <ul>
             <li class="person active">
-                <a href="index.html"><i class="am-icon-user"></i>个人中心</a>
+                <a href="index1.html"><i class="am-icon-user"></i>个人中心</a>
             </li>
             <li class="person">
                 <p><i class="am-icon-newspaper-o"></i>个人资料</p>
@@ -708,7 +693,7 @@
     <li><a href="../home/home2.html"><i class="am-icon-home "></i>首页</a></li>
     <li><a href="../home/sort.html"><i class="am-icon-list"></i>分类</a></li>
     <li><a href="../home/shopcart.html"><i class="am-icon-shopping-basket"></i>购物车</a></li>
-    <li class="active"><a href="index.html"><i class="am-icon-user"></i>我的</a></li>
+    <li class="active"><a href="index1.html"><i class="am-icon-user"></i>我的</a></li>
 </div>
 </body>
 

@@ -603,10 +603,10 @@ filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#f8c375',endCo
 
 
 /*小三角*/
-.floor-subtitle{position: relative;}
+.floor-subtitle{position: relative; margin-left: 40px}
 .floor-subtitle em{display: block;position: absolute;left:43px ;top:9px;color: #fff7d1;font-size:24px;}
 .floor-subtitle h3{background: #fff7d1;padding: 5px;margin-top: 7px;color: #977a6f;}
-.shopTitle h4.floor-title {margin: 9px 0px;}
+.shopTitle h4.floor-title {margin: 9px 0px; width: 80px; text-align: left}
 .floodSix .word .outer ,.floodSeven .word .outer {margin: 0 5px 10px 0;border-radius:0 ;height: auto;}
 .floodSix .word .outer .inner ,.floodSeven .word .outer .inner{height: auto;}
 

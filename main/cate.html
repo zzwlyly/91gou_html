@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<script src="../js/jquery.js" type="javascript"></script>-->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>分类</title>
+
+    <link href="../AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css"/>
+    <link href="../AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../basic/css/demo.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../css/hmstyle.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/cate.css" rel="stylesheet" type="text/css"/>
+    <script src="../AmazeUI-2.4.2/assets/js/jquery.min.js" type="javascript"></script>
+    <script src="../AmazeUI-2.4.2/assets/js/amazeui.min.js" type="javascript"></script>
+    <script type="text/javascript " src="../basic/js/quick_links.js "></script>
+    <script src="../basic/common/api.js"></script>
+
+    <script src="../js/cate.js"></script>
+
+</head>
+<body>
+<!--头部-->
+<div class="hmtop"></div>
+
+<b class="line"></b>
+
+<div class="am-container">
+    <div style="font-size: 30px;height: 200px;margin-top: 60px; text-align: center; line-height: 200px; border: black 1px solid">
+        热卖推荐预留栏
+    </div>
+
+    <div class="cate-title" style="background-color: #f1f1f1; height: 32px;line-height: 32px; text-align: left; margin-top: 10px">
+            <span style="padding-right: 5px; padding-left: 10px">
+                <span class="cate-name" style="color: red; font-size: 16px; font-weight: bolder"></span>
+                <span style=" font-size: 16px; font-weight: bolder; ">商品筛选</span>
+            </span>
+        <span>共 </span>
+        <span class="good-counts"></span>
+        <span>个商品</span>
+    </div>
+
+    <div class="cate-prop" style="margin-top: 20px"></div>
+
+    <div class="goods-list clear-v">
+        <!--<img src="../images/ec4f38bd994261fb27bdbc6928466e306d826fc7.jpg">-->
+    </div>
+
+    <div class="shopMainbg">
+
+        <div class="footer " style="bottom: 0"></div>
+        <!--右侧菜单 -->
+        <div class=tip>
+            <div id="sidebar">
+                <div id="wrap">
+                    <div id="prof" class="item ">
+                        <a href="# ">
+                            <span class="setting "></span>
+                        </a>
+                        <!--TODO 弹出会员信息-->
+                        <div class="ibar_login_box status_login ">
+                            <div class="avatar_box ">
+                                <p class="avatar_imgbox "><img src="../images/no-img_mid_.jpg "/></p>
+                                <ul class="user_info ">
+                                    <li>用户名：唯老🐂🍺</li>
+                                    <li>级&nbsp;别：钻石会员</li>
+                                </ul>
+                            </div>
+                            <div class="login_btnbox ">
+                                <a href="# " class="login_order ">我的订单</a>
+                                <a href="# " class="login_favorite ">我的收藏</a>
+                            </div>
+                            <i class="icon_arrow_white "></i>
+                        </div>
+                        <!------------------->
+                    </div>
+                    <!--TODO 点击弹出购物车-->
+                    <div id="shopCart " class="item ">
+                        <a href="# ">
+                            <span class="message "></span>
+                        </a>
+                        <p>
+                            购物车
+                        </p>
+                        <p class="cart_num ">0</p>
+                    </div>
+
+                    <div id="asset " class="item ">
+                        <a href="# ">
+                            <span class="view "></span>
+                        </a>
+                        <div class="mp_tooltip ">
+                            我的资产
+                            <i class="icon_arrow_right_black "></i>
+                        </div>
+                    </div>
+
+                    <div id="foot " class="item ">
+                        <a href="# ">
+                            <span class="zuji "></span>
+                        </a>
+                        <div class="mp_tooltip ">
+                            我的足迹
+                            <i class="icon_arrow_right_black "></i>
+                        </div>
+                    </div>
+
+                    <div id="brand " class="item ">
+                        <a href="#">
+                            <span class="wdsc "><img src="../images/wdsc.png "/></span>
+                        </a>
+                        <div class="mp_tooltip ">
+                            我的收藏
+                            <i class="icon_arrow_right_black "></i>
+                        </div>
+                    </div>
+
+                    <div id="broadcast " class="item ">
+                        <a href="# ">
+                            <span class="chongzhi "><img src="../images/chongzhi.png "/></span>
+                        </a>
+                        <div class="mp_tooltip ">
+                            我要充值
+                            <i class="icon_arrow_right_black "></i>
+                        </div>
+                    </div>
+
+                    <div class="quick_toggle ">
+                        <li class="qtitem ">
+                            <a href="# "><span class="kfzx "></span></a>
+                            <div class="mp_tooltip ">客服中心<i class="icon_arrow_right_black "></i></div>
+                        </li>
+                        <!--二维码 -->
+                        <li class="qtitem ">
+                            <a href="#none "><span class="mpbtn_qrcode "></span></a>
+                            <div class="mp_qrcode " style="display:none; "><img src="../images/weixin_code_145.png "/><i
+                                    class="icon_arrow_white "></i></div>
+                        </li>
+                        <li class="qtitem ">
+                            <a href="#top " class="return_top "><span class="top "></span></a>
+                        </li>
+                    </div>
+
+                    <!--回到顶部 -->
+                    <div id="quick_links_pop " class="quick_links_pop hide "></div>
+
+                </div>
+
+            </div>
+            <div id="prof-content " class="nav-content ">
+                <div class="nav-con-close ">
+                    <i class="am-icon-angle-right am-icon-fw "></i>
+                </div>
+                <div>
+                    我
+                </div>
+            </div>
+            <div id="shopCart-content " class="nav-content ">
+                <div class="nav-con-close ">
+                    <i class="am-icon-angle-right am-icon-fw "></i>
+                </div>
+                <div>
+                    购物车
+                </div>
+            </div>
+            <div id="asset-content " class="nav-content ">
+                <div class="nav-con-close ">
+                    <i class="am-icon-angle-right am-icon-fw "></i>
+                </div>
+                <div>
+                    资产
+                </div>
+
+                <div class="ia-head-list ">
+                    <a href="# " target="_blank " class="pl ">
+                        <div class="num ">0</div>
+                        <div class="text ">优惠券</div>
+                    </a>
+                    <a href="# " target="_blank " class="pl ">
+                        <div class="num ">0</div>
+                        <div class="text ">红包</div>
+                    </a>
+                    <a href="# " target="_blank " class="pl money ">
+                        <div class="num ">￥0</div>
+                        <div class="text ">余额</div>
+                    </a>
+                </div>
+
+            </div>
+            <div id="foot-content " class="nav-content ">
+                <div class="nav-con-close ">
+                    <i class="am-icon-angle-right am-icon-fw "></i>
+                </div>
+                <div>
+                    足迹
+                </div>
+            </div>
+            <div id="brand-content " class="nav-content ">
+                <div class="nav-con-close ">
+                    <i class="am-icon-angle-right am-icon-fw "></i>
+                </div>
+                <div>
+                    收藏
+                </div>
+            </div>
+            <div id="broadcast-content " class="nav-content ">
+                <div class="nav-con-close ">
+                    <i class="am-icon-angle-right am-icon-fw "></i>
+                </div>
+                <div>
+                    充值
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<!--<script type="javascript">-->
+<!--$(function () {-->
+<!--$('.hmtop').load('../basic/common/header.html');-->
+<!--$('.footer').load('../basic/common/footer.html');-->
+<!--});-->
+<!--</script>-->
+<!--<script src="../js/cate.js" type="javascript"></script>-->
+
+</body>
+</html>
