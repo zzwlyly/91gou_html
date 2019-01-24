@@ -15,6 +15,7 @@
     <script src="../AmazeUI-2.4.2/assets/js/amazeui.js"></script>
 
     <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+
     <script type="text/javascript">
         function hasParameter(url, variable) {
             var query = window.location.search.substring(1);
@@ -30,7 +31,9 @@
 
         // 设置session_id  一天过期
         $.cookie('sessionid',hasParameter(location.href,'sessionid'),{ expires: 1 })
+
     </script>
+
 </head>
 
 <body>

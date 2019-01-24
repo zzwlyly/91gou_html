@@ -86,7 +86,7 @@ $(function () {
                     $dl.append
                     ($('<dd>')
                         .append(
-                            $('<a>').attr('title', cate_3.name).attr('href', '/')
+                            $('<a>').attr('title', cate_3.name).attr('href', 'search.html?nav=' + cate_3.nid)
                                 .append(
                                     $('<span>').text(cate_3.name)
                                 )
@@ -129,6 +129,7 @@ $(function () {
 
     //    热门商品
     for (let i = 1; i < 5; i++) {
+        let good_names = ['小米电视','iPhone XS','MacBookPro','Gucci双肩包'];
         $('.sale').append(
             $('<div class="am-u-sm-3 sale-item">')
                 .append(
@@ -136,7 +137,7 @@ $(function () {
                         .append(
                             $('<a>').attr('href', '#')
                                 .append(
-                                    $('<img>').attr('src', '../images/sale' + i + '.jpg')
+                                    $('<img>').attr('src', '../basic/images/main' + i + '.jpg')
                                 )
                         )
                 ).append(
@@ -144,7 +145,7 @@ $(function () {
                     .append(
                         $('<a>').attr('href', '#')
                             .append(
-                                $('<p>').addClass('title').text('ZEK 原味海苔')
+                                $('<p>').addClass('title').text(good_names[i-1])
                             )
                     )
                     .append(
@@ -274,7 +275,8 @@ $(function () {
                         .append(
                             $('<a>').attr('href', '/')
                                 .append(
-                                    $('<img style="width: 280px;height: 280px">').attr('src', cate1.goods[0].show_img)
+                                    $('<img style="width: 280px;height: 280px"  />').attr('src', '../images/'+ cate1.goods[0].show_img + '.jpg')
+                                                                            // onerror="this.onerror=null; this.src="../images/main3.jpg""
                                     // $('<img>').attr('src', '../images/act1.png')
                                 )
                         )
@@ -300,8 +302,8 @@ $(function () {
                             .append(
                                 $('<a>').attr('href', '/')
                                     .append(
-                                        $('<img style="width: 150px;height: 150px">').attr('src', cate1.goods[1].show_img)
-                                        // $('<img>').attr('src', '../images/1.jpg')
+                                        $('<img style="width: 150px;height: 150px">').attr('src', '../images/'+ cate1.goods[1].show_img + '.jpg')
+                                                                                    // $('<img>').attr('src', '../images/1.jpg')
                                     )
                             )
                     )
@@ -327,8 +329,8 @@ $(function () {
                             .append(
                                 $('<a>').attr('href', '/')
                                     .append(
-                                        $('<img style="width: 150px;height: 150px">').attr('src', cate1.goods[2].show_img)
-                                        // $('<img>').attr('src', '../images/1.jpg')
+                                        $('<img style="width: 150px;height: 150px">').attr('src', '../images/'+ cate1.goods[2].show_img + '.jpg')
+                                                                                    // $('<img>').attr('src', '../images/1.jpg')
                                     )
                             )
                     )
@@ -354,8 +356,8 @@ $(function () {
                             .append(
                                 $('<a>').attr('href', '/')
                                     .append(
-                                        $('<img style="width: 150px;height: 150px">').attr('src', cate1.goods[3].show_img)
-                                        // $('<img>').attr('src', '../images/1.jpg')
+                                        $('<img style="width: 150px;height: 150px">').attr('src', '../images/'+ cate1.goods[3].show_img + '.jpg')
+                                                                                    // $('<img>').attr('src', '../images/1.jpg')
                                     )
                             )
                     )
@@ -381,8 +383,8 @@ $(function () {
                             .append(
                                 $('<a>').attr('href', '/')
                                     .append(
-                                        $('<img style="width: 150px;height: 150px">').attr('src', cate1.goods[4].show_img)
-                                        // $('<img>').attr('src', '../images/1.jpg')
+                                        $('<img style="width: 150px;height: 150px">').attr('src', '../images/'+ cate1.goods[4].show_img + '.jpg')
+                                                                                    // $('<img>').attr('src', '../images/1.jpg')
                                     )
                             )
                     )
@@ -408,7 +410,8 @@ $(function () {
                             .append(
                                 $('<a>').attr('href', '/')
                                     .append(
-                                        $('<img style="width: 150px;height: 150px">').attr('src', cate1.goods[5].show_img)
+                                        $('<img style="width: 150px;height: 150px">').attr('src', '../images/'+ cate1.goods[5].show_img + '.jpg')
+                                            
                                         // $('<img>').attr('src', '../images/1.jpg')
                                     )
                             )
