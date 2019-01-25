@@ -44,10 +44,13 @@ h3.title{text-align: center;padding:8px;font-weight: 600;}
 
 /*主题*/
 .login-form{background:#fff ;width: 100%;}
-form{max-width:320px;margin:20px auto ;}
+/*form{max-width:320px;margin:20px auto ;}*/
+.login-form{max-width:320px;margin:20px auto ;}
 .user-name,.user-pass,.user-email,.user-phone,.verification{position: relative;height: 42px;margin-bottom:5px;}
-form label{position:absolute;display: block;width: 40px;height: 40px;line-height: 40px;background:#fff;text-align: center;top:1px;left:1px}
-form input{font-size: 14px;line-height: 18px;height:42px;padding: 11px 8px 11px 50px;width:100%;border:1px solid #fff;}
+/*form label{position:absolute;display: block;width: 40px;height: 40px;line-height: 40px;background:#fff;text-align: center;top:1px;left:1px}*/
+.login-form label{position:absolute;display: block;width: 40px;height: 40px;line-height: 40px;background:#fff;text-align: center;top:1px;left:1px}
+/*form input{font-size: 14px;line-height: 18px;height:42px;padding: 11px 8px 11px 50px;width:100%;border:1px solid #fff;}*/
+.login-form input{font-size: 14px;line-height: 18px;height:42px;padding: 11px 8px 11px 50px;width:100%;border:1px solid #fff;}
 input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px #fff inset;}
 .am-cf{width: 100%;max-width:320px;margin:0px auto ;}
 .am-cf input{width: 100%;font-size: 14px;}
@@ -82,7 +85,7 @@ margin-right: 0px;border-bottom: 1px solid #0e90d2;border-radius: 0px;}
 
 @media screen and (min-width:640px){
 form,.am-cf,.partner{max-width:640px;margin:20px auto ;}
-.footer-bd{ display:block;}	
+.footer-bd{ display:block;}
 .partner h3 {text-align:left;}
 .am-btn-group i { display:inline-block;border-radius:0px;border:0px;background-color:transparent ;}
 .am-btn-group span{display:inline-block;}

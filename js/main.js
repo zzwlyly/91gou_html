@@ -2,7 +2,8 @@ $(function () {
     $('.hmtop').load('../basic/common/header.html');
     $('.footer').load('../basic/common/footer.html');
 
-
+    let uid = getCookie('uid');
+    // USER_API + uid
     $.get(NAV_URL, function (result) {
 
         if (result.status === 200 && result.msg === 'success') {
@@ -170,7 +171,7 @@ $(function () {
     //     }
     // });
 
-    $.get(CATE_URL, function (result) {
+    $.get(MAIN_CATE_URL, function (result) {
         if (result.status === 200 && result.msg === 'success') {
             // 商品展示
             add_goods(result.data);
@@ -273,7 +274,7 @@ $(function () {
                                 )
                         )
                         .append(
-                            $('<a>').attr('href', '/')
+                            $('<a>').attr('href', 'detail.html?good_id=' + cate1.goods[0].good_id)
                                 .append(
                                     $('<img style="width: 280px;height: 280px"  />').attr('src', '../images/'+ cate1.goods[0].show_img + '.jpg')
                                                                             // onerror="this.onerror=null; this.src="../images/main3.jpg""
@@ -300,7 +301,7 @@ $(function () {
                                     )
                             )
                             .append(
-                                $('<a>').attr('href', '/')
+                                $('<a>').attr('href', 'detail.html?good_id=' + cate1.goods[1].good_id)
                                     .append(
                                         $('<img style="width: 150px;height: 150px">').attr('src', '../images/'+ cate1.goods[1].show_img + '.jpg')
                                                                                     // $('<img>').attr('src', '../images/1.jpg')
@@ -327,7 +328,7 @@ $(function () {
                                     )
                             )
                             .append(
-                                $('<a>').attr('href', '/')
+                                $('<a>').attr('href', 'detail.html?good_id=' + cate1.goods[2].good_id)
                                     .append(
                                         $('<img style="width: 150px;height: 150px">').attr('src', '../images/'+ cate1.goods[2].show_img + '.jpg')
                                                                                     // $('<img>').attr('src', '../images/1.jpg')
@@ -354,7 +355,7 @@ $(function () {
                                     )
                             )
                             .append(
-                                $('<a>').attr('href', '/')
+                                $('<a>').attr('href', 'detail.html?good_id=' + cate1.goods[3].good_id)
                                     .append(
                                         $('<img style="width: 150px;height: 150px">').attr('src', '../images/'+ cate1.goods[3].show_img + '.jpg')
                                                                                     // $('<img>').attr('src', '../images/1.jpg')
@@ -381,7 +382,7 @@ $(function () {
                                     )
                             )
                             .append(
-                                $('<a>').attr('href', '/')
+                                $('<a>').attr('href', 'detail.html?good_id=' + cate1.goods[4].good_id)
                                     .append(
                                         $('<img style="width: 150px;height: 150px">').attr('src', '../images/'+ cate1.goods[4].show_img + '.jpg')
                                                                                     // $('<img>').attr('src', '../images/1.jpg')
@@ -408,7 +409,7 @@ $(function () {
                                     )
                             )
                             .append(
-                                $('<a>').attr('href', '/')
+                                $('<a>').attr('href', 'detail.html?good_id=' + cate1.goods[5].good_id)
                                     .append(
                                         $('<img style="width: 150px;height: 150px">').attr('src', '../images/'+ cate1.goods[5].show_img + '.jpg')
                                             
@@ -424,14 +425,3 @@ $(function () {
 
 
 });
-
-/*
-        
-        for (let goods of subcate.types[0].goods_detail) {
-            
-        }
-        
-        }
-        
-        
-* */
