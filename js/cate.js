@@ -80,12 +80,11 @@ $(function () {
         $.get('http://127.0.0.1:5000/api/v1/goods/limit/', limit_param, function (result) {
             // alert(GOODS_LIMIT_URL);
             if (result.status === 200 && result.msg === 'success') {
-                for (let good of result.data) {
-                    // $('#cate-num').text(cate.goods.length);
+                $('#cate-num').text(result.data.pages);
+                for (let good of result.data.goods) {
                     $('.boxes')
                         .append(
                             $('<li>')
-                            //'detail.html?good_id='
                                 .append(
                                     $('<a>').attr('href', 'detail.html?good_id=' + good.good_id)
                                         .append(

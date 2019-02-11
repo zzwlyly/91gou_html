@@ -51,10 +51,10 @@
 
     <div class="search-bar pr">
         <a name="index_none_header_sysc" href="#"></a>
-        <form>
-            <input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off">
-            <input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit">
-        </form>
+        <div>
+            <input id="searchInput" name="kw" type="text" placeholder="搜索" autocomplete="off" style="font-size: 16px; border: 2px red solid">
+            <input id="ai-topsearch" class="submit am-btn" value="搜索" type="submit">
+        </div>
     </div>
 </div>
 
@@ -62,13 +62,13 @@
 <script language="JavaScript">
     $(function () {
         let USER_API = 'http://127.0.0.1:5000/api/v1/login/response/';
-        let cookies = getCookie('uid', 'flag');
+        // let cookies = getCookie('uid', 'flag');
         // cookies = cookies.split(',');
         // console.log('header > cookies：', cookies);
-        let uid = cookies[0];
-        let flag = cookies[2];
-        // let uid = getUid('uid');
-        // let flag = getFlag('flag');
+        // let uid = cookies[0];
+        // let flag = cookies[2];
+        let uid = getUid('uid');
+        let flag = getFlag('flag');
         console.log('header > cookies：', uid, flag);
         let param = {"uid": uid, "flag": flag};
         if (!isBlank(uid) && flag === "1") {
@@ -81,6 +81,33 @@
                     show_user(result.data);
                 }
             })
+        }
+
+        $("#ai-topsearch").click(function () {
+            // 搜索跳转
+            let kw = $('#searchInput').val();
+            // 转码 中文会乱码
+            window.location.href="search.html?kw=" + encodeURIComponent(kw) + "&page=" + '1';
+        });
+
+        function getUid(name) {
+
+            var arr = document.cookie.match(new RegExp("(^|)" + name + "=([^;]*)(;|$)"));
+
+            if (arr != null) return unescape(arr[2]);
+
+            return null;
+
+        }
+
+        function getFlag(name) {
+
+            var arr = document.cookie.match(new RegExp("(^|)" + name + "=([^;]*)(;|$)"));
+
+            if (arr != null) return unescape(arr[2]);
+
+            return null;
+
         }
 
         function show_user(result) {
@@ -106,25 +133,7 @@
                 document.cookie = name1 + "=" + cvals[0] + ";expires=" + exp.toGMTString();
             document.cookie = name2 + "=" + cvals[1] + ";expires=" + exp.toGMTString();
         }
+
+
     })
 </script>
-<!--<b class="line"></b>-->
-
-<!--<div class="shopNav" style="max-height: 57px">-->
-<!--<div class="slideall" style="height: auto;">-->
-<!--<div class="long-title"><span class="all-goods">全部分类</span></div>-->
-<!--<div class="nav-cont">-->
-<!--<ul>-->
-<!--<li class="index"><a href="#">首页</a></li>-->
-<!--<li class="qc"><a href="#">闪购</a></li>-->
-<!--<li class="qc"><a href="#">限时抢</a></li>-->
-<!--<li class="qc"><a href="#">团购</a></li>-->
-<!--<li class="qc last"><a href="#">大包装</a></li>-->
-<!--</ul>-->
-<!--<div class="nav-extra">-->
-<!--<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>我的福利-->
-<!--<i class="am-icon-angle-right" style="padding-left: 10px;"></i>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->

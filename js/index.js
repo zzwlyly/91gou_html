@@ -4,9 +4,8 @@ $(function () {
 
     console.log('index js 加载成功！');
     let USER_API = 'http://127.0.0.1:5000/api/v1/login/response/';
-    let cookies = getCookie('uid', 'flag');
-    let uid = cookies[0];
-    let flag = cookies[2];
+    let uid = getUid('uid');
+    let flag = getFlag('flag');
     let param = {"uid": uid, "flag": flag};
     if (!isBlank(uid) && flag === "1") {
         console.log('person_index', param);
@@ -27,4 +26,24 @@ $(function () {
 
     $('.s-name').text('社会我欢哥！');
 
+
+    function getUid(name) {
+
+        var arr = document.cookie.match(new RegExp("(^|)" + name + "=([^;]*)(;|$)"));
+
+        if (arr != null) return unescape(arr[2]);
+
+        return null;
+
+    }
+
+    function getFlag(name) {
+
+        var arr = document.cookie.match(new RegExp("(^|)" + name + "=([^;]*)(;|$)"));
+
+        if (arr != null) return unescape(arr[2]);
+
+        return null;
+
+    }
 });
