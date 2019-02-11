@@ -1,0 +1,4 @@
+.person-tab:hover {
+    color: red;
+    cursor: pointer;
+}

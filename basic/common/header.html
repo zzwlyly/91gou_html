@@ -1,5 +1,4 @@
 <!--顶部导航条 -->
-
 <div class="am-container header">
     <ul class="message-l">
         <div class="topMessage">
@@ -18,23 +17,21 @@
             <div class="menu-hd"><a href="/91gou/main/main.html" target="_top" class="h">商城首页</a></div>
         </div>
         <div class="topMessage my-shangcheng">
-            <div class="menu-hd MyShangcheng"><a href="/91gou/main/index.html" target="_top"><i
-                    class="am-icon-user am-icon-fw"></i>个人中心</a>
+            <div class="menu-hd MyShangcheng"><i class="am-icon-user am-icon-fw"></i>
+                <span class="person-tab" id="person-center">个人中心</span>
             </div>
         </div>
         <div class="topMessage mini-cart">
-            <div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i
-                    class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum"
-                                                                                          class="h">0</strong></a>
+            <div class="menu-hd">
+                <i class="am-icon-shopping-cart  am-icon-fw"></i>
+                <span class="person-tab" id="person-cart">购物车</span>
+                <strong id="J_MiniCartNum" class="h">0</strong>
             </div>
         </div>
         <div class="topMessage favorite">
             <div class="menu-hd">
-                <a href="#" target="_top">
-                    <i class="am-icon-heart am-icon-fw">
-
-                    </i><span>收藏夹</span>
-                </a>
+                <i class="am-icon-heart am-icon-fw"></i>
+                <span class="person-tab" id="person-mark">收藏夹</span>
             </div>
         </div>
     </ul>
@@ -52,7 +49,8 @@
     <div class="search-bar pr">
         <a name="index_none_header_sysc" href="#"></a>
         <div>
-            <input id="searchInput" name="kw" type="text" placeholder="搜索" autocomplete="off" style="font-size: 16px; border: 2px red solid">
+            <input id="searchInput" name="kw" type="text" placeholder="搜索" autocomplete="off"
+                   style="font-size: 16px; border: 2px red solid">
             <input id="ai-topsearch" class="submit am-btn" value="搜索" type="submit">
         </div>
     </div>
@@ -62,15 +60,23 @@
 <script language="JavaScript">
     $(function () {
         let USER_API = 'http://127.0.0.1:5000/api/v1/login/response/';
-        // let cookies = getCookie('uid', 'flag');
-        // cookies = cookies.split(',');
-        // console.log('header > cookies：', cookies);
-        // let uid = cookies[0];
-        // let flag = cookies[2];
         let uid = getUid('uid');
         let flag = getFlag('flag');
         console.log('header > cookies：', uid, flag);
         let param = {"uid": uid, "flag": flag};
+
+        $('#person-center').on('click', function () {
+            to_person_center(uid, flag);
+        });
+
+        $('#person-cart').on('click', function () {
+            to_person_cart(uid, flag);
+        });
+
+        $('#person-mark').on('click', function () {
+            to_person_mark(uid, flag);
+        });
+
         if (!isBlank(uid) && flag === "1") {
             //    判断cookies有值 且是登录状态
             //    发送请求
@@ -87,7 +93,7 @@
             // 搜索跳转
             let kw = $('#searchInput').val();
             // 转码 中文会乱码
-            window.location.href="search.html?kw=" + encodeURIComponent(kw) + "&page=" + '1';
+            window.location.href = "search.html?kw=" + encodeURIComponent(kw) + "&page=" + '1';
         });
 
         function getUid(name) {
@@ -135,5 +141,31 @@
         }
 
 
+        function to_person_center(uid, flag) {
+            if (!isBlank(uid) && flag === "1") {
+                window.location.href = "index.html"
+            } else {
+                // alert('请登录或注册后再使用！')
+                window.location.href = "login.html"
+            }
+        }
+
+        function to_person_cart(uid, flag) {
+            if (!isBlank(uid) && flag === "1") {
+                alert("登录购物车成功")
+            } else {
+                // alert('请登录或注册后再使用！')
+                window.location.href = "login.html"
+            }
+        }
+
+        function to_person_mark(uid, flag) {
+            if (!isBlank(uid) && flag === "1") {
+                alert("登录收藏成功")
+            } else {
+                // alert('请登录或注册后再使用！')
+                window.location.href = "login.html"
+            }
+        }
     })
 </script>

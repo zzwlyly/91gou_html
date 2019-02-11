@@ -35,6 +35,7 @@ $(function () {
 
 //登录事件
     $("#login").click(function () {
+        // todo 前端登录失败未判断
         var username = $('input[name=username]').val();
         var password = $('input[name=password]').val();
         console.log(username,password);
