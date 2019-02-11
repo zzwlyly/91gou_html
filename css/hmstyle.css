@@ -408,8 +408,8 @@ top: 11px;text-align: right;}
 .category-content .menu-item .area-in{ position: relative;  z-index: 1;  }
 .category-content .menu-item .area-bg{ padding: 10px 0 10px 40px;}
 .shadow-bg{ display: none; position: relative; width: 100%; height: 0; } 
-.shadow-b,.shadow-bg i{background: url(themes/mall/default/styles/default/images/index_ico.png) no-repeat; }
-.shadow-r,.shadow-l{ background: url(themes/mall/default/styles/default/images/shadow.png) no-repeat; }
+/*.shadow-b,.shadow-bg i{background: url(themes/mall/default/styles/default/images/index_ico.png) no-repeat; }*/
+/*.shadow-r,.shadow-l{ background: url(themes/mall/default/styles/default/images/shadow.png) no-repeat; }*/
 .shadow-bg i,.shadow-b{ position: absolute; width: 100%; height: 0; height: 2px\9; background-position: 0 -188px; background-repeat: repeat-x;  }
 .shadow-bg i,.shadow-b{ _height:0; }
 .shadow-l{  position: absolute; left: 0; _left:-42px; top: 0; width: 0; width: 2px\9;  height: 100%; background-position: right 0;  background-repeat: repeat-y;  }

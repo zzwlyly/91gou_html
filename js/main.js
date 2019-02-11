@@ -2,7 +2,7 @@ $(function () {
     $('.hmtop').load('../basic/common/header.html');
     $('.footer').load('../basic/common/footer.html');
 
-    let uid = getCookie('uid');
+    // let uid = getCookie('uid');
     // USER_API + uid
     $.get(NAV_URL, function (result) {
 
@@ -87,7 +87,7 @@ $(function () {
                     $dl.append
                     ($('<dd>')
                         .append(
-                            $('<a>').attr('title', cate_3.name).attr('href', 'search.html?nav=' + cate_3.nid)
+                            $('<a>').attr('title', cate_3.name).attr('href', 'cate.html?nav=' + cate_3.nid)
                                 .append(
                                     $('<span>').text(cate_3.name)
                                 )

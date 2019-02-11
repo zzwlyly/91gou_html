@@ -1,10 +1,15 @@
 <!--顶部导航条 -->
+
 <div class="am-container header">
     <ul class="message-l">
         <div class="topMessage">
-            <div class="menu-hd">
+            <div class="menu-hd" id="not_login">
                 <a href="/91gou/main/login.html" target="_top" class="h">亲，请登录</a>
                 <a href="/91gou/main/register.html" target="_top">免费注册</a>
+            </div>
+            <div class="menu-hd" id="is_login" style="display: none">
+                <span id="user_name"></span>
+                <span id="logout">退出</span>
             </div>
         </div>
     </ul>
@@ -13,7 +18,7 @@
             <div class="menu-hd"><a href="/91gou/main/main.html" target="_top" class="h">商城首页</a></div>
         </div>
         <div class="topMessage my-shangcheng">
-            <div class="menu-hd MyShangcheng"><a href="/" target="_top"><i
+            <div class="menu-hd MyShangcheng"><a href="/91gou/person/index.html" target="_top"><i
                     class="am-icon-user am-icon-fw"></i>个人中心</a>
             </div>
         </div>
@@ -38,9 +43,10 @@
 <!--悬浮搜索框-->
 
 <div class="nav white">
-    <div class="logo"><img src="../images/91logo.png"/></div>
+    <!--<div class="logo"><img src="../images/91logo.png"/></div>-->
     <div class="logoBig">
-        <li><a href="/91gou/main/main.html"><img src="../images/91logo.png" style="height: 90px; width: 200px"/></a></li>
+        <li><a href="/91gou/main/main.html"><img src="../images/91logo.png" style="height: 90px; width: 200px"/></a>
+        </li>
     </div>
 
     <div class="search-bar pr">
@@ -53,24 +59,77 @@
 </div>
 
 <div class="clear"></div>
+<script language="JavaScript">
+    $(function () {
+        let USER_API = 'http://127.0.0.1:5000/api/v1/login/response/';
+        let cookies = getCookie('uid', 'flag');
+        let uid = cookies[0];
+        let flag = cookies[2];
+        let param = {"uid": uid, "flag": flag};
+        if (!isBlank(uid) && flag === "1") {
+            console.log('header', param);
+            //    判断cookies有值 且是登录状态
+            //    发送请求
+            $.post(USER_API, param, function (result) {
+                // console.log('header', data);
+                if (result.status === 200 && result.msg === 'success') {
+                    // 显示数据
+                    show_user(result.data);
+                }
+            })
+        }
 
+        // /** 判断是否为空 **/
+        // function isBlank(_value) {
+        //     if (_value == null || _value === "" || _value === undefined) {
+        //         return true;
+        //     }
+        //     return false;
+        // }
+
+        function show_user(result) {
+            $('#not_login').hide();
+            $('#is_login').show();
+
+            $('#user_name').text(result.username);
+            $('#logout').click(function () {
+                //    退出，清除cookie
+                //    修改用户flag状态
+                $('#not_login').show();
+                $('#is_login').hide();
+                delCookie('uid', 'flag');
+                $.post('http://127.0.0.1:5000/api/v1/logout/',{'uid':uid})
+            })
+
+        }
+
+        function delCookie(name1,name2) {
+            var exp = new Date();
+            exp.setTime(exp.getTime() - 1);
+            var cvals = getCookie(name1,name2);
+            if (cvals[0] != null || cvals[1] != null)
+                document.cookie = name1 + "=" + cvals[0] + ";expires=" + exp.toGMTString();
+                document.cookie = name2 + "=" + cvals[1] + ";expires=" + exp.toGMTString();
+        }
+    })
+</script>
 <!--<b class="line"></b>-->
 
 <!--<div class="shopNav" style="max-height: 57px">-->
-    <!--<div class="slideall" style="height: auto;">-->
-        <!--<div class="long-title"><span class="all-goods">全部分类</span></div>-->
-        <!--<div class="nav-cont">-->
-            <!--<ul>-->
-                <!--<li class="index"><a href="#">首页</a></li>-->
-                <!--<li class="qc"><a href="#">闪购</a></li>-->
-                <!--<li class="qc"><a href="#">限时抢</a></li>-->
-                <!--<li class="qc"><a href="#">团购</a></li>-->
-                <!--<li class="qc last"><a href="#">大包装</a></li>-->
-            <!--</ul>-->
-            <!--<div class="nav-extra">-->
-                <!--<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>我的福利-->
-                <!--<i class="am-icon-angle-right" style="padding-left: 10px;"></i>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
+<!--<div class="slideall" style="height: auto;">-->
+<!--<div class="long-title"><span class="all-goods">全部分类</span></div>-->
+<!--<div class="nav-cont">-->
+<!--<ul>-->
+<!--<li class="index"><a href="#">首页</a></li>-->
+<!--<li class="qc"><a href="#">闪购</a></li>-->
+<!--<li class="qc"><a href="#">限时抢</a></li>-->
+<!--<li class="qc"><a href="#">团购</a></li>-->
+<!--<li class="qc last"><a href="#">大包装</a></li>-->
+<!--</ul>-->
+<!--<div class="nav-extra">-->
+<!--<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>我的福利-->
+<!--<i class="am-icon-angle-right" style="padding-left: 10px;"></i>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 <!--</div>-->

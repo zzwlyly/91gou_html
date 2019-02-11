@@ -119,11 +119,12 @@ function checkConfirmPW() {
 
 
 
-function getCookie(name) {
+function getCookie(name1,name2) {
 
-    var arr = document.cookie.match(new RegExp("(^|)" + name + "=([^;]*)(;|$)"));
+    var arr1 = document.cookie.match(new RegExp("(^|)" + name1 + "=([^;]*)(;|$)"));
+    var arr2 = document.cookie.match(new RegExp("(^|)" + name2 + "=([^;]*)(;|$)"));
 
-    if (arr != null) return unescape(arr[2]);
+    if (arr1 != null && arr2 != null) return unescape([arr1[2],arr2[2]]);
 
     return null;
 
