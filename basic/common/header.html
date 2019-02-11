@@ -18,7 +18,7 @@
             <div class="menu-hd"><a href="/91gou/main/main.html" target="_top" class="h">商城首页</a></div>
         </div>
         <div class="topMessage my-shangcheng">
-            <div class="menu-hd MyShangcheng"><a href="/91gou/person/index.html" target="_top"><i
+            <div class="menu-hd MyShangcheng"><a href="/91gou/main/index.html" target="_top"><i
                     class="am-icon-user am-icon-fw"></i>个人中心</a>
             </div>
         </div>
@@ -63,11 +63,15 @@
     $(function () {
         let USER_API = 'http://127.0.0.1:5000/api/v1/login/response/';
         let cookies = getCookie('uid', 'flag');
+        // cookies = cookies.split(',');
+        // console.log('header > cookies：', cookies);
         let uid = cookies[0];
         let flag = cookies[2];
+        // let uid = getUid('uid');
+        // let flag = getFlag('flag');
+        console.log('header > cookies：', uid, flag);
         let param = {"uid": uid, "flag": flag};
         if (!isBlank(uid) && flag === "1") {
-            console.log('header', param);
             //    判断cookies有值 且是登录状态
             //    发送请求
             $.post(USER_API, param, function (result) {
@@ -78,14 +82,6 @@
                 }
             })
         }
-
-        // /** 判断是否为空 **/
-        // function isBlank(_value) {
-        //     if (_value == null || _value === "" || _value === undefined) {
-        //         return true;
-        //     }
-        //     return false;
-        // }
 
         function show_user(result) {
             $('#not_login').hide();
@@ -98,18 +94,17 @@
                 $('#not_login').show();
                 $('#is_login').hide();
                 delCookie('uid', 'flag');
-                $.post('http://127.0.0.1:5000/api/v1/logout/',{'uid':uid})
-            })
-
+                $.post('http://127.0.0.1:5000/api/v1/logout/', {'uid': uid})
+            });
         }
 
-        function delCookie(name1,name2) {
+        function delCookie(name1, name2) {
             var exp = new Date();
             exp.setTime(exp.getTime() - 1);
-            var cvals = getCookie(name1,name2);
+            var cvals = getCookie(name1, name2);
             if (cvals[0] != null || cvals[1] != null)
                 document.cookie = name1 + "=" + cvals[0] + ";expires=" + exp.toGMTString();
-                document.cookie = name2 + "=" + cvals[1] + ";expires=" + exp.toGMTString();
+            document.cookie = name2 + "=" + cvals[1] + ";expires=" + exp.toGMTString();
         }
     })
 </script>

@@ -118,7 +118,6 @@ function checkConfirmPW() {
 }
 
 
-
 function getCookie(name1,name2) {
 
     var arr1 = document.cookie.match(new RegExp("(^|)" + name1 + "=([^;]*)(;|$)"));

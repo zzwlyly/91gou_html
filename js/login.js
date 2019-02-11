@@ -20,9 +20,11 @@ $(function () {
             }
 
             setCookie('uid','flag', data[0],data[1]);
-            // todo 带上url参数 首页重新发送post请求user信息
-            window.location.href='main.html';
-
+            // 带上url参数 header头部 重新发送post请求user信息
+            // window.location.href='main.html';
+            // 刷新上一页
+            // window.location.go(-1);
+            window.history.go(-1);
             //将response得到的Token缓存到sessionStorage里面
             // sessionStorage.setItem('Token', data.TOKEN);
         })
