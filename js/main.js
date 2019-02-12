@@ -87,7 +87,7 @@ $(function () {
                     $dl.append
                     ($('<dd>')
                         .append(
-                            $('<a>').attr('title', cate_3.name).attr('href', 'cate.html?nav=' + cate_3.nid)
+                            $('<a>').attr('title', cate_3.name).attr('href', 'cate.html?nav=' + cate_3.nid +  "&page=1")
                                 .append(
                                     $('<span>').text(cate_3.name)
                                 )

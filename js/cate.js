@@ -1,5 +1,6 @@
 let url = location.search;
-let nav_id = parseInt(url.split('=')[1]);
+// let nav_id = parseInt(url.split('=')[1]);
+let nav_id = parseInt(url.split('&')[0].split('=')[1]);
 // let nav_id = 16;
 // flag 区分是点击分类进来的 还是 搜索关键字进来的
 $(function () {
@@ -14,10 +15,10 @@ $(function () {
             //     console.log('点击了属性。。');
             // });
             cate_value_click_event();
+            // 分类商品显示，点击下一页
+            add_goods(nav_id);
         }
     });
-
-    add_goods(nav_id, 1);
 
     function add_cates(result) {
         let values = [];
@@ -75,7 +76,7 @@ $(function () {
 
     }
 
-    function add_goods(nid, page) {
+    function add_goods(nid, page=1) {
         let limit_param = {"nid": nid, "page": page};
         $.get('http://127.0.0.1:5000/api/v1/goods/limit/', limit_param, function (result) {
             // alert(GOODS_LIMIT_URL);
@@ -244,4 +245,10 @@ $(function () {
 
         });
     }
+
+    $('.next-two').click(function () {
+        $('.boxes').empty();
+        add_goods(nav_id, 2);
+    })
+
 });
