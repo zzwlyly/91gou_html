@@ -21,7 +21,7 @@ $(function () {
             if (result.status === 200 && result.msg === 'success') {
                 console.log('result', result);
                 $('#search-name').text(kw);
-                $('#cate-num').text(result.data.pages);
+                $('#cate-num').text(result.data.total);
                 for (let good of result.data.goods) {
                     $('.boxes')
                         .append(
@@ -48,7 +48,7 @@ $(function () {
                                                 .append(
                                                     $('<p class="number fl">').text('销量')
                                                         .append(
-                                                            $('<span>').text('0')
+                                                            $('<span>').text(good.sale_volume)
                                                             )
                                                     )
                                             )

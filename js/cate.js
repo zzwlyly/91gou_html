@@ -75,12 +75,12 @@ $(function () {
 
     }
 
-    function add_goods(nid, page=1) {
-        let limit_param = {"nid": nid, "page": page};
+    function add_goods(nid, page = 1, sort = 1) {
+        let limit_param = {"nid": nid, "page": page, "sort": sort};
         $.get('http://127.0.0.1:5000/api/v1/goods/limit/', limit_param, function (result) {
             // alert(GOODS_LIMIT_URL);
             if (result.status === 200 && result.msg === 'success') {
-                $('#cate-num').text(result.data.pages);
+                $('#cate-num').text(result.data.total);
                 for (let good of result.data.goods) {
                     $('.boxes')
                         .append(
@@ -107,7 +107,7 @@ $(function () {
                                                 .append(
                                                     $('<p class="number fl">').text('销量')
                                                         .append(
-                                                            $('<span>').text('0')
+                                                            $('<span>').text(good.sale_volume)
                                                             )
                                                     )
                                             )
@@ -245,6 +245,25 @@ $(function () {
         });
     }
 
+
+    // ============================= 排序点击事件 =============================
+    $('#sort-default').click(function () {
+        $('.boxes').empty();
+        add_goods(nav_id);
+    });
+
+    $('#sort-price').click(function () {
+        $('.boxes').empty();
+        add_goods(nav_id, 1, 2);
+    });
+
+    $('#sort-sale').click(function () {
+        $('.boxes').empty();
+        add_goods(nav_id, 1, 3);
+    });
+
+
+    // ============================= 翻页事件 =============================
     $('.next-two').click(function () {
         $('.boxes').empty();
         add_goods(nav_id, 2);
