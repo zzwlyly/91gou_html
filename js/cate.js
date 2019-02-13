@@ -2,7 +2,6 @@ let url = location.search;
 // let nav_id = parseInt(url.split('=')[1]);
 let nav_id = parseInt(url.split('&')[0].split('=')[1]);
 // let nav_id = 16;
-// flag 区分是点击分类进来的 还是 搜索关键字进来的
 $(function () {
     $('.hmtop').load('../basic/common/header.html');
     $('.footer').load('../basic/common/footer.html');

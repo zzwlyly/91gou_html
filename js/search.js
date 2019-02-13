@@ -12,16 +12,15 @@ $(function () {
     //     location.reload();
     // });
     kw = decodeURIComponent(kw);
-    console.log('kw', kw);
 
     add_goods(kw);
 
     function add_goods(kw, page=1) {
         let limit_param = {"kw": kw, "page": page};
-        console.log('limit_param', limit_param);
         $.get('http://127.0.0.1:5000/api/v1/search/', limit_param, function (result) {
             if (result.status === 200 && result.msg === 'success') {
                 console.log('result', result);
+                $('#search-name').text(kw);
                 $('#cate-num').text(result.data.pages);
                 for (let good of result.data.goods) {
                     $('.boxes')

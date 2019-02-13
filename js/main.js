@@ -187,7 +187,7 @@ $(function () {
             let $floodSix = $('<div class="am-g am-g-fixed floodSix ">');
             let $word = $('<div class="word">');
 
-
+            let good_desc = ['每一部手机都有一个故事','容纳千变万化，仍可一触即发','突破视觉界限，更绚丽更精彩','你的背包','你值得拥有'];
             $('#shopmain').append(
                 $('<div>').addClass('f' + (result.indexOf(cate1) + 1))
                     .append(
@@ -205,7 +205,7 @@ $(function () {
                                                 $('<em>').addClass('am-icon-caret-left')
                                             )
                                             .append(
-                                                $('<h3>').text('每一件衣服都有一个故事')
+                                                $('<h3>').text(good_desc[result.indexOf(cate1)])
                                             )
                                     )
                                     .append(
@@ -245,21 +245,20 @@ $(function () {
                     )
             );
 
-            for (let good of cate1.goods.slice(0, 9)) {
-                $('<a>').attr('href', '').text(good.good_name.slice(0, 2)).appendTo($brands);
-                $word
-                    .append(
-                        $('<a class="outer" href="#">')
-                            .append(
-                                $('<span class="inner">')
-                                    .append(
-                                        $('<b class="text">').text(good.good_name.slice(0, 2))
-                                    )
-                            )
-                    );
+            // for (let good of cate1.goods.slice(0, 6)) {
+            //     $('<a>').attr('href', '').text(good.good_name.slice(0, 2)).appendTo($brands);
+            //     $word
+            //         .append(
+            //             $('<a class="outer" href="#">')
+            //                 .append(
+            //                     $('<span class="inner">')
+            //                         .append(
+            //                             $('<b class="text">').text(good.good_name.slice(0, 2))
+            //                         )
+            //                 )
+            //         );
+            // }
 
-
-            }
             // 推荐商品1
             $floodSix
                 .append(
