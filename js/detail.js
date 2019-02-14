@@ -12,14 +12,19 @@ $(function () {
             for (let good of result.data) {
                 if (good_id === good.good_id) {
                     let $ul_img = $('<ul class="tb-thumb" id="thumblist">');
+                    // let $jqzoom = $('<img class="jqzoom">');
                     $('.item-inform')
                         .append($('<div class="clearfixLeft" id="clearcontent">')
                             .append($('<div class="box">')
                             /* 商品大图*/
                             // '../images/'+ good.show_img +'.jpg'
                                 .append($('<div class="tb-booth tb-pic tb-s310">')
-                                    .append($('<a>')
-                                        .append($('<img class="jqzoom">').attr('src', '../basic/images/main1.jpg'))
+                                    .append(
+                                        $('<a>')
+                                            .append(
+                                                $('<img class="jqzoom">')
+                                                    .attr('src', '../images/' + good.goods_img[0].img + '.jpg')
+                                                )
                                         )
                                     )
                                 /*商品小图*/
@@ -266,7 +271,8 @@ $(function () {
 
                     //    商品左边图片
                     for (let good_img of good.goods_img.slice(0, 3)) {
-                        let img = '../basic/images/main' + (good.goods_img.indexOf(good_img) + 1) + '.jpg';
+                        // let img = '../basic/images/main' + (good.goods_img.indexOf(good_img) + 1) + '.jpg';
+                        let img = '../images/' + good_img.img + '.jpg';
                         $ul_img
                             .append($(' <li class="tb-selected">')
                                 .append($('<div class="tb-pic tb-s40">')
@@ -326,36 +332,40 @@ $(function () {
 
 
                     /*推荐*/
-                    $('.introduce')
-                        .append($('<div class="browse">')
-                            .append($('<div class="mc">')
-                                .append($('<ul>')
-                                    .append($('<div class="mt">')
-                                        .append($('<h2>').text('看了又看'))
-                                        )
-                                    .append($('<li class="first">')
-                                        .append($('<div class="p-img">')
-                                            .append($('<a href="#">')
-                                                .append($('<img>').attr('src', '../images/browse1.jpg'))
-                                                )
-                                            )
-                                        .append($('<div class="p-name">')
-                                            .append($('<a href="#">').text('【三只松鼠_开口松子】零食坚果特产炒货东北红松子原味'))
-                                            )
-                                        .append($('<div class="p-price">')
-                                            .append($('<strong>').text('￥35.90'))
-                                            )
-                                        )
-                                    )
-                                )
-                            );
-                    $('.twlistNews').append($('<img>').attr('src', '../images/10.jpg'))
+                    // $('.introduce')
+                    //     .append($('<div class="browse">')
+                    //         .append($('<div class="mc">')
+                    //             .append($('<ul>')
+                    //                 .append($('<div class="mt">')
+                    //                     .append($('<h2>').text('看了又看'))
+                    //                     )
+                    //                 .append($('<li class="first">')
+                    //                     .append($('<div class="p-img">')
+                    //                         .append($('<a href="#">')
+                    //                             .append($('<img>').attr('src', '../images/browse1.jpg'))
+                    //                             )
+                    //                         )
+                    //                     .append($('<div class="p-name">')
+                    //                         .append($('<a href="#">').text('【三只松鼠_开口松子】零食坚果特产炒货东北红松子原味'))
+                    //                         )
+                    //                     .append($('<div class="p-price">')
+                    //                         .append($('<strong>').text('￥35.90'))
+                    //                         )
+                    //                     )
+                    //                 )
+                    //             )
+                    //         );
+                    $('.twlistNews')
+                        .append($('<img>').attr('src', '../images/10.png'))
                         .append($('<img>').attr('src', '../images/4.jpg'))
                         .append($('<img>').attr('src', '../images/5.jpg'))
                         .append($('<img>').attr('src', '../images/6.jpg'))
                         .append($('<img>').attr('src', '../images/7.jpg'))
                         .append($('<img>').attr('src', '../images/8.jpg'))
-                        .append($('<img>').attr('src', '../images/9.jpg'));
+                        .append($('<img>').attr('src', '../images/9.jpg'))
+                        .append($('<img>').attr('src', '../images/11.jpg'))
+                        .append($('<img>').attr('src', '../images/12.jpg'))
+                        .append($('<img>').attr('src', '../images/13.jpg'));
 
 
                     /*全部评价*/
@@ -363,26 +373,48 @@ $(function () {
                         .append($('<em>').text('(2177)'))
                         );
                     /*评论*/
-                    $('.am-comments-list').append($('<li class="am-comment">')
-                        .append($('<a href="">')
-                        // 用户头像
-                            .append($('<img class="am-comment-avatar">').attr('src', '../images/hwbn40x40.jpg'))
-                            )
-                        .append($('<div class="am-comment-meta">')
-                        //用户名
-                            .append($('<a href="#link-to-user" class="am-comment-author">').text('b***1 (匿名)'))
-                            //评论日期
-                            .append($('<time datetime="">').text('2015年11月02日 17:46'))
-                            )
-                        .append($('<div class="am-comment-bd">')
-                            .append($('<div class="tb-rev-item " data-id="255776406962">')
-                            //   评论内容
-                                .append($('<div class="J_TbcRate_ReviewContent tb-tbcr-content ">').text('摸起来丝滑柔软，不厚，没色差，颜色好看！买这个衣服还接到诈骗电话，我很好奇他们是怎么知道我买了这件衣服，并且还知道我的电话的！'))
-                                )
-                            // 购买产品型号
-                            .append($('<div class="tb-r-act-bar">').text('颜色分类：柠檬黄&nbsp;&nbsp;尺码：S'))
-                            )
-                        );
+                    for (let appraise of good.appraise) {
+                        //'b***1 (匿名)'
+                        let username = appraise.user.username;
+                        username = username.slice(0, 3) + '**** (匿名)';
+                        $('.am-comments-list')
+                            .append(
+                                $('<li class="am-comment">')
+                                    .append(
+                                        $('<a href="">')
+                                        // 用户头像
+                                            .append(
+                                                $('<img class="am-comment-avatar">').attr('src', '../images/' + appraise.user.user_photo + '.jpg'))
+                                        )
+                                    .append(
+                                        $('<div class="am-comment-main">')
+                                            .append(
+                                                $('<header class="am-comment-hd">')
+                                                    .append(
+                                                        $('<div class="am-comment-meta">')
+                                                        //用户名
+                                                            .append(
+                                                                $('<a href="#link-to-user" class="am-comment-author">').text(username))
+                                                            //评论日期
+                                                            .append(
+                                                                $('<time datetime="">').text(appraise.create_time))
+                                                        )
+                                                )
+                                            .append(
+                                                $('<div class="am-comment-bd">')
+                                                    .append(
+                                                        $('<div class="tb-rev-item ">')
+                                                        //   评论内容
+                                                            .append(
+                                                                $('<div class="J_TbcRate_ReviewContent tb-tbcr-content ">').text(appraise.appraise_desc))
+                                                        )
+                                                    // 购买产品型号
+                                                    .append(
+                                                        $('<div class="tb-r-act-bar">').text('型号：6GB+64GB 黑色'))
+                                                )
+                                        )
+                                );
+                    }
 
                     /*猜你喜欢*/
                     $('.am-avg-sm-2').append($('<li>')
