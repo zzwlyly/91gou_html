@@ -393,15 +393,20 @@ $(function () {
                             'uid': uid,
                             'good_id': good_id.join(','),
                         };
+
+                        // 修改购物车状态（未支付）
                         $.post("http://127.0.0.1:5000/api/v1/cart/", param, function () {
                         });
 
+                        // 生成订单，并返回订单号
                         $.post("http://127.0.0.1:5000/api/v1/orders/", {'uid': uid}, function (data) {
-                            let pay_param = {'uid': uid, 'oid': data};
-                            $.post("http://127.0.0.1:5000/api/v1/alipay/", pay_param, function (data) {
-                                // window.location.href = data
-                                window.open(data,"_blank");
-                            })
+                            // 跳转到结算界面
+                            // let pay_param = {'uid': uid, 'oid': data};
+                            window.location.href='pay.html' + '?oid=' + data
+                            // $.post("http://127.0.0.1:5000/api/v1/alipay/", pay_param, function (data) {
+                            //     // window.location.href = data
+                            //     window.open(data,"_blank");
+                            // })
                         });
                         $('.order_content').empty();
                     })

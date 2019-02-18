@@ -10,7 +10,7 @@ $(function () {
             // 动态添加三级菜单
             add_category(result.data);
             // 数据库只有8条数据，所以执行两次，显示16条导航
-            add_category(result.data);
+            // add_category(result.data);
         }
 
 
@@ -266,7 +266,7 @@ $(function () {
                         .append(
                             $('<div class="outer-con">')
                                 .append(
-                                    $('<div class="title">').text(cate1.goods[0].good_name)
+                                    $('<div class="title">').text(cate1.goods[0].good_name.substring(0,16))
                                 )
                                 .append(
                                     $('<div class="sub-title">').text("¥" + cate1.goods[0].good_price)
@@ -293,7 +293,7 @@ $(function () {
                             .append(
                                 $('<div class="outer-con ">')
                                     .append(
-                                        $('<div class="title">').text(cate1.goods[1].good_name)
+                                        $('<div class="title">').text(cate1.goods[1].good_name.substring(0,16))
                                     )
                                     .append(
                                         $('<div class="sub-title">').text("¥" + cate1.goods[1].good_price)
@@ -320,7 +320,7 @@ $(function () {
                             .append(
                                 $('<div class="outer-con ">')
                                     .append(
-                                        $('<div class="title">').text(cate1.goods[2].good_name)
+                                        $('<div class="title">').text(cate1.goods[2].good_name.substring(0,16))
                                     )
                                     .append(
                                         $('<div class="sub-title">').text("¥" + cate1.goods[2].good_price)
@@ -347,7 +347,7 @@ $(function () {
                             .append(
                                 $('<div class="outer-con ">')
                                     .append(
-                                        $('<div class="title">').text(cate1.goods[3].good_name)
+                                        $('<div class="title">').text(cate1.goods[3].good_name.substring(0,16))
                                     )
                                     .append(
                                         $('<div class="sub-title">').text("¥" + cate1.goods[3].good_price)
@@ -374,7 +374,7 @@ $(function () {
                             .append(
                                 $('<div class="outer-con ">')
                                     .append(
-                                        $('<div class="title">').text(cate1.goods[4].good_name)
+                                        $('<div class="title">').text(cate1.goods[4].good_name.substring(0,16))
                                     )
                                     .append(
                                         $('<div class="sub-title">').text("¥" + cate1.goods[4].good_price)
@@ -401,7 +401,7 @@ $(function () {
                             .append(
                                 $('<div class="outer-con ">')
                                     .append(
-                                        $('<div class="title">').text(cate1.goods[5].good_name)
+                                        $('<div class="title">').text(cate1.goods[5].good_name.substring(0,16))
                                     )
                                     .append(
                                         $('<div class="sub-title">').text("¥" + cate1.goods[5].good_price)
